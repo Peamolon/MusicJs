@@ -3,7 +3,12 @@ body {
     transition: background-color .5s;
 }
 
+.container {
+    display: flex;
+}
+
 .player {
+    width: 60%;
     height: 95vh;
     display: flex;
     align-items: center;
@@ -122,4 +127,17 @@ i.fa-pause-circle,
 i.fa-step-forward,
 i.fa-step-backward {
     cursor: pointer;
+}
+
+.music_items {
+    width: 40%;
+    background-color: green;
+}
+
+.music-table-td {
+    color: white;
+}
+
+#music-table {
+    background-color: black;
 }

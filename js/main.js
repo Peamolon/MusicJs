@@ -17,7 +17,7 @@ let isPlaying = false;
 let updateTimer;
 
 let curr_track = document.createElement('audio');
-let track_list = [{
+var track_list = [{
         name: "Querer Querernos",
         artist: "Canserbero",
         image: "Image URL",
@@ -32,6 +32,12 @@ let track_list = [{
     {
         name: "Shipping Lanes",
         artist: "Chad Crouch",
+        image: "Image URL",
+        path: "Shipping_Lanes.mp3",
+    },
+    {
+        name: "Maquiavelico",
+        artist: "Canserbero",
         image: "Image URL",
         path: "Shipping_Lanes.mp3",
     },
