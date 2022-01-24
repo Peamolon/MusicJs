@@ -8,6 +8,7 @@ function getTable() {
             track_list[j].artist,
             track_list[j].image
         ]
+        createImage(row)
         for (let i = 0; i < 3; i++) {
             var cell = document.createElement("td");
             cell.setAttribute("class", "music-table-td")
@@ -17,5 +18,16 @@ function getTable() {
         }
         table.appendChild(row);
     }
+}
+
+function createImage(row) {
+    var cell = document.createElement("td");
+    cell.setAttribute("class", "music-table-td-image")
+    var image = document.createElement("img")
+    image.setAttribute("class", "music-table-td-image-img")
+    image.src = "https://source.unsplash.com/Qrspubmx6kE/640x360"
+    image.width = "80"
+    cell.appendChild(image)
+    row.appendChild(cell)
 }
 getTable()
