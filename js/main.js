@@ -39,14 +39,13 @@ var track_list = [{
         name: "Maquiavelico",
         artist: "Canserbero",
         image: "Image URL",
-        path: "Shipping_Lanes.mp3",
+        path: "../music/maquiavelico.mp3",
     },
 ];
 
 function loadTrack(track_index) {
     clearInterval(updateTimer);
     resetValues();
-
     curr_track.src = track_list[track_index].path;
     curr_track.load();
 
@@ -86,32 +85,47 @@ function playpauseTrack() {
     else pauseTrack();
 }
 
+function putPist(track_index) {
+    cell = document.getElementById(`music-table-td-${track_index}`);
+    cell.style.visibility = "visible"
+}
+
+function removePist(track_index) {
+    cell = document.getElementById(`music-table-td-${track_index}`);
+    cell.style.visibility = "hidden"
+}
+
 function playTrack() {
     curr_track.play();
     isPlaying = true;
-
+    putPist(track_index)
     playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
 }
 
 function pauseTrack() {
     curr_track.pause();
+    removePist(track_index)
     isPlaying = false;
     playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';;
 }
 
 function nextTrack() {
+    removePist(track_index)
     if (track_index < track_list.length - 1)
         track_index += 1;
     else track_index = 0;
     loadTrack(track_index);
+    putPist(track_index);
     playTrack();
 }
 
 function prevTrack() {
+    removePist(track_index)
     if (track_index > 0)
         track_index -= 1;
     else track_index = track_list.length - 1;
     loadTrack(track_index);
+    putPist(track_index);
     playTrack();
 }
 
