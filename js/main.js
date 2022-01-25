@@ -71,7 +71,7 @@ function random_bg_color() {
 
     let bgColor = "rgb(" + red + ", " + green + ", " + blue + ")";
 
-    document.body.style.background = bgColor;
+    //document.body.style.background = bgColor;
 }
 
 function resetValues() {
