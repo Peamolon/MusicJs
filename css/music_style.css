@@ -21,7 +21,9 @@
     color: white;
 }
 
-.music-table-tr {}
+.music-table-tr:hover {
+    background-color: #373333;
+}
 
 .music-table-td-image {
     display: flex;

@@ -2,7 +2,9 @@ function getTable() {
     table = document.getElementById("music-table")
     for (let j = 0; j < track_list.length; j++) {
         var row = document.createElement("tr");
+        row.setAttribute("id", `music-table-tr-${j}`)
         row.setAttribute("class", "music-table-tr")
+        row.setAttribute("onclick", `playSelectedTrack(${j})`);
         values = [
             track_list[j].name,
             track_list[j].artist,
@@ -32,4 +34,9 @@ function createImage(row, i) {
     cell.appendChild(image)
     row.appendChild(cell)
 }
+
+function escribir(index_track) {
+    console.log(`Èl index es ${index_track}`)
+}
+
 getTable()

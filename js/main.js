@@ -24,16 +24,16 @@ var track_list = [{
         path: "../music/canserbero.mp3"
     },
     {
-        name: "Enthusiast",
-        artist: "Tours",
+        name: "Pensando en ti",
+        artist: "Canserbero",
         image: "Image URL",
-        path: "Enthusiast.mp3"
+        path: "../music/pensando_en_ti.mp3"
     },
     {
-        name: "Shipping Lanes",
-        artist: "Chad Crouch",
+        name: "Jeremías 17:5 ",
+        artist: "Canserbero",
         image: "Image URL",
-        path: "Shipping_Lanes.mp3",
+        path: "../music/jeremias.mp3",
     },
     {
         name: "Maquiavelico",
@@ -58,8 +58,15 @@ function loadTrack(track_index) {
     updateTimer = setInterval(seekUpdate, 1000);
 
     curr_track.addEventListener("ended", nextTrack);
-
+    playTrack()
     random_bg_color();
+}
+
+function playSelectedTrack(new_track_index) {
+    removePist(track_index);
+    putPist(new_track_index);
+    track_index = new_track_index;
+    loadTrack(track_index);
 }
 
 function random_bg_color() {
@@ -78,6 +85,7 @@ function resetValues() {
     curr_time.textContent = "00:00";
     total_duration.textContent = "00:00";
     seek_slider.value = 0
+
 }
 
 function playpauseTrack() {
@@ -93,20 +101,21 @@ function putPist(track_index) {
 function removePist(track_index) {
     cell = document.getElementById(`music-table-td-${track_index}`);
     cell.style.visibility = "hidden"
+
 }
 
 function playTrack() {
     curr_track.play();
     isPlaying = true;
     putPist(track_index)
-    playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+    playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x" style="color: white"></i>';
 }
 
 function pauseTrack() {
     curr_track.pause();
     removePist(track_index)
     isPlaying = false;
-    playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';;
+    playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x" style="color: white"></i>';;
 }
 
 function nextTrack() {
