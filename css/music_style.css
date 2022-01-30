@@ -19,6 +19,7 @@
     padding: 10px;
     border-bottom: 1px solid #404040;
     color: white;
+    cursor: pointer;
 }
 
 .music-table-tr:hover {
